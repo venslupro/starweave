@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { appScenes } from "@/components/AppScenes";
 import { CopyEmail } from "@/components/CopyEmail";
 import { HeroVisual } from "@/components/HeroVisual";
 import { ArrowIcon, CheckIcon, Logo, MailIcon, featureIcons } from "@/components/Icons";
@@ -25,15 +26,6 @@ const featureAccents = [
   "from-sky-400 to-cyan-500 shadow-sky-500/30",
   "from-violet-500 to-fuchsia-500 shadow-violet-500/30",
   "from-blue-500 to-indigo-600 shadow-blue-500/30",
-];
-
-const appGradients = [
-  "from-sky-100 to-blue-50",
-  "from-orange-100 to-amber-50",
-  "from-cyan-100 to-teal-50",
-  "from-emerald-100 to-lime-50",
-  "from-violet-100 to-indigo-50",
-  "from-fuchsia-100 to-pink-50",
 ];
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -227,15 +219,27 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <SectionHeader eyebrow={t.apps.eyebrow} title={t.apps.title} desc={t.apps.desc} />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {t.apps.items.map((a, i) => (
-                <Reveal key={a.title} delay={(i % 3) * 90}>
-                  <article className={`card h-full bg-gradient-to-br p-7 ${appGradients[i]}`}>
-                    <span className="font-display text-sm font-bold text-azure">/ 0{i + 1}</span>
-                    <h3 className="mt-4 font-display text-xl font-bold">{a.title}</h3>
-                    <p className="mt-2 leading-relaxed text-ink-soft">{a.text}</p>
-                  </article>
-                </Reveal>
-              ))}
+              {t.apps.items.map((a, i) => {
+                const Scene = appScenes[i];
+                return (
+                  <Reveal key={a.title} delay={(i % 3) * 90}>
+                    <article className="card group h-full overflow-hidden bg-white">
+                      <div className="relative aspect-[8/5] overflow-hidden">
+                        <div className="h-full w-full transition duration-700 group-hover:scale-105">
+                          <Scene />
+                        </div>
+                        <span className="absolute right-3 bottom-3 rounded-full bg-white/90 px-2.5 py-0.5 font-display text-xs font-bold text-azure shadow-sm">
+                          0{i + 1}
+                        </span>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="font-display text-xl font-bold">{a.title}</h3>
+                        <p className="mt-2 leading-relaxed text-ink-soft">{a.text}</p>
+                      </div>
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
