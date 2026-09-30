@@ -141,11 +141,6 @@ body {
     opacity: 1;
   }
 }
-@keyframes grow {
-  from {
-    transform: scaleX(0);
-  }
-}
 
 .orbit-a {
   transform-origin: 300px 300px;
@@ -169,10 +164,6 @@ body {
 }
 .twinkle {
   animation: twinkle 3s ease-in-out infinite;
-}
-.bar-grow {
-  transform-origin: left;
-  animation: grow 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
