@@ -184,27 +184,33 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </ol>
 
             <Reveal className="mt-16">
-              <div className="card p-8 sm:p-10">
-                <h3 className="font-display text-lg font-bold">{t.how.compareTitle}</h3>
-                <div className="mt-6 space-y-6">
-                  <div>
-                    <div className="mb-2 flex flex-wrap justify-between gap-2 text-sm">
-                      <span className="font-semibold">{t.how.before}</span>
-                      <span className="text-ink-soft">{t.how.beforeNote}</span>
+              <div className="card overflow-hidden">
+                <h3 className="px-6 pt-8 font-display text-lg font-bold sm:px-10">{t.how.compareTitle}</h3>
+                <div className="mt-6 grid grid-cols-[4.5rem_1fr_1fr] text-sm sm:grid-cols-[7rem_1fr_1fr] sm:text-base">
+                  {t.how.compareHead.map((h, i) => (
+                    <div
+                      key={i}
+                      className={`border-b border-line px-3 py-3 font-semibold sm:px-6 ${i === 0 ? "sm:pl-10" : ""} ${i === 2 ? "bg-blue-50/70 text-azure sm:pr-10" : "text-ink-soft"}`}
+                    >
+                      {h}
                     </div>
-                    <div className="h-4 overflow-hidden rounded-full bg-slate-100">
-                      <div className="bar-grow h-full w-full rounded-full bg-gradient-to-r from-slate-300 to-slate-400" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="mb-2 flex flex-wrap justify-between gap-2 text-sm">
-                      <span className="font-semibold text-azure">{t.how.after}</span>
-                      <span className="text-ink-soft">{t.how.afterNote}</span>
-                    </div>
-                    <div className="h-4 overflow-hidden rounded-full bg-slate-100">
-                      <div className="bar-grow h-full w-[8%] rounded-full bg-gradient-to-r from-violet to-sky" style={{ animationDelay: "0.3s" }} />
-                    </div>
-                  </div>
+                  ))}
+                  {t.how.compare.map((row, r) => {
+                    const last = r === t.how.compare.length - 1;
+                    const cell = `px-3 py-4 leading-relaxed sm:px-6 ${last ? "pb-8" : "border-b border-line"}`;
+                    return [
+                      <div key={`${row.k}-k`} className={`${cell} font-display font-bold sm:pl-10`}>
+                        {row.k}
+                      </div>,
+                      <div key={`${row.k}-g`} className={`${cell} text-ink-soft`}>
+                        {row.ground}
+                      </div>,
+                      <div key={`${row.k}-o`} className={`${cell} flex gap-2 bg-blue-50/70 font-medium sm:pr-10`}>
+                        <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-azure" />
+                        {row.orbit}
+                      </div>,
+                    ];
+                  })}
                 </div>
               </div>
             </Reveal>
@@ -251,7 +257,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div>
               <SectionHeader eyebrow={t.why.eyebrow} title={t.why.title} center={false} />
               <Reveal className="relative -mt-4 aspect-[16/10] overflow-hidden rounded-3xl shadow-xl shadow-blue-900/10">
-                <Image src={photos.why} alt={t.why.items[0].title} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <Image src={photos.why} alt={t.why.items[1].title} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 to-transparent" />
               </Reveal>
             </div>
