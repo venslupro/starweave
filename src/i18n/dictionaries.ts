@@ -154,7 +154,6 @@ const zh = {
   footer: {
     tagline: "构建在轨算力 · 把数据中心送上太空",
     rights: "保留所有权利。",
-    photos: "图片来源",
   },
 };
 
@@ -314,7 +313,6 @@ const en: Dictionary = {
   footer: {
     tagline: "Compute in orbit · Data centers in space",
     rights: "All rights reserved.",
-    photos: "Photos via",
   },
 };
 
