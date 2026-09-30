@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CopyEmail } from "@/components/CopyEmail";
 import { HeroVisual } from "@/components/HeroVisual";
-import { ArrowIcon, CheckIcon, Logo, MailIcon, featureIcons } from "@/components/Icons";
+import { ArrowIcon, CheckIcon, Logo, MailIcon } from "@/components/Icons";
 import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
 import { CONTACT_EMAIL, hasLocale } from "@/i18n/config";
@@ -21,13 +21,6 @@ function SectionHeader({ eyebrow, title, desc, center = true }: { eyebrow: strin
     </Reveal>
   );
 }
-
-const featureAccents = [
-  "from-amber-400 to-orange-500 shadow-amber-500/30",
-  "from-sky-400 to-cyan-500 shadow-sky-500/30",
-  "from-violet-500 to-fuchsia-500 shadow-violet-500/30",
-  "from-blue-500 to-indigo-600 shadow-blue-500/30",
-];
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -145,34 +138,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <SectionHeader eyebrow={t.features.eyebrow} title={t.features.title} desc={t.features.desc} />
             <div className="grid gap-6 md:grid-cols-2">
-              {t.features.items.map((f, i) => {
-                const Icon = featureIcons[f.icon as keyof typeof featureIcons];
-                return (
-                  <Reveal key={f.title} delay={(i % 2) * 100}>
-                    <article className="card group h-full overflow-hidden bg-white">
-                      <div className="relative aspect-[16/7] overflow-hidden">
-                        <Image
-                          src={photos.features[i]}
-                          alt={f.title}
-                          fill
-                          sizes="(min-width: 768px) 50vw, 100vw"
-                          className="object-cover transition duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                        <span className="absolute top-4 right-5 font-display text-4xl font-bold text-white/85 drop-shadow">0{i + 1}</span>
-                        <p className="absolute bottom-4 left-28 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-azure backdrop-blur sm:left-32">{f.tag}</p>
-                      </div>
-                      <div className="relative px-8 pb-9 sm:px-10">
-                        <div className={`-mt-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ring-4 ring-white ${featureAccents[i]}`}>
-                          <Icon className="h-8 w-8" />
-                        </div>
-                        <h3 className="mt-5 font-display text-2xl font-bold">{f.title}</h3>
-                        <p className="mt-3 leading-relaxed text-ink-soft">{f.text}</p>
-                      </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
+              {t.features.items.map((f, i) => (
+                <Reveal key={f.title} delay={(i % 2) * 100}>
+                  <article className="card group h-full overflow-hidden bg-white">
+                    <div className="relative aspect-[16/7] overflow-hidden">
+                      <Image
+                        src={photos.features[i]}
+                        alt={f.title}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                      <span className="absolute top-4 right-5 font-display text-4xl font-bold text-white/85 drop-shadow">0{i + 1}</span>
+                      <p className="absolute bottom-4 left-8 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-azure backdrop-blur sm:left-10">{f.tag}</p>
+                    </div>
+                    <div className="px-8 pt-7 pb-9 sm:px-10">
+                      <h3 className="font-display text-2xl font-bold">{f.title}</h3>
+                      <p className="mt-3 leading-relaxed text-ink-soft">{f.text}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>

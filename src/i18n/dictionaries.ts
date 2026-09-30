@@ -49,25 +49,21 @@ const zh = {
     desc: "以太空的物理优势重构算力基础设施。",
     items: [
       {
-        icon: "sun",
         title: "全天候太阳能供电",
         text: "晨昏轨道几乎持续光照，太阳能直接转化为算力，清洁低碳，不与地面电网争夺容量。",
         tag: "清洁 · 低碳",
       },
       {
-        icon: "snow",
         title: "深空天然散热",
         text: "以辐射方式向接近绝对零度的深空排热，不耗水、不占地，彻底告别冷却塔与水资源争议。",
         tag: "零水耗 · 零占地",
       },
       {
-        icon: "bolt",
         title: "数据即采即算",
         text: "遥感、通信与传感数据在轨实时推理，只回传结构化结果，大幅节省下行带宽与响应时间。",
         tag: "实时 · 省带宽",
       },
       {
-        icon: "net",
         title: "星间激光组网",
         text: "卫星之间以激光链路互联成网，算力节点可按需加入，实现像云一样的弹性扩展。",
         tag: "弹性 · 可扩展",
@@ -210,25 +206,21 @@ const en: Dictionary = {
     desc: "Rebuilding compute infrastructure on the physical advantages of space.",
     items: [
       {
-        icon: "sun",
         title: "Always-on Solar Power",
         text: "Dawn-dusk orbits enjoy near-continuous sunlight, turning solar energy straight into compute — clean, low-carbon and off the terrestrial grid.",
         tag: "Clean · Low-carbon",
       },
       {
-        icon: "snow",
         title: "Natural Deep-Space Cooling",
         text: "Heat is radiated into near-absolute-zero space. No water, no land — no cooling towers and no competition for water resources.",
         tag: "Zero water · Zero land",
       },
       {
-        icon: "bolt",
         title: "Compute at Capture",
         text: "Imagery, communications and sensor data are inferred in orbit in real time; only structured results come down, saving downlink bandwidth and time.",
         tag: "Real-time · Bandwidth-light",
       },
       {
-        icon: "net",
         title: "Inter-satellite Laser Mesh",
         text: "Satellites interconnect via laser links into one network. Compute nodes join on demand, scaling elastically like the cloud.",
         tag: "Elastic · Scalable",
