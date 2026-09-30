@@ -372,11 +372,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
           <p>
             © {new Date().getFullYear()} StarWeave. {t.footer.rights}
-            <span className="mx-2 text-line">|</span>
-            {t.footer.photos}{" "}
-            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:text-azure hover:underline">
-              Unsplash
-            </a>
           </p>
         </div>
       </footer>
