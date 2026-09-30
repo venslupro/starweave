@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { appScenes } from "@/components/AppScenes";
 import { CopyEmail } from "@/components/CopyEmail";
 import { HeroVisual } from "@/components/HeroVisual";
 import { ArrowIcon, CheckIcon, Logo, MailIcon, featureIcons } from "@/components/Icons";
@@ -7,6 +7,7 @@ import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
 import { CONTACT_EMAIL, hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { photos } from "@/lib/photos";
 
 function SectionHeader({ eyebrow, title, desc, center = true }: { eyebrow: string; title: string; desc?: string; center?: boolean }) {
   return (
@@ -148,17 +149,26 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 const Icon = featureIcons[f.icon as keyof typeof featureIcons];
                 return (
                   <Reveal key={f.title} delay={(i % 2) * 100}>
-                    <article className="card group h-full overflow-hidden p-8 sm:p-10">
-                      <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-gradient-to-br from-blue-100 to-transparent opacity-70 transition group-hover:scale-125" />
-                      <div className="relative flex items-start justify-between gap-4">
-                        <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ${featureAccents[i]}`}>
-                          <Icon className="h-7 w-7" />
-                        </div>
-                        <span className="font-display text-5xl font-bold text-blue-100">0{i + 1}</span>
+                    <article className="card group h-full overflow-hidden bg-white">
+                      <div className="relative aspect-[16/7] overflow-hidden">
+                        <Image
+                          src={photos.features[i]}
+                          alt={f.title}
+                          fill
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          className="object-cover transition duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                        <span className="absolute top-4 right-5 font-display text-4xl font-bold text-white/85 drop-shadow">0{i + 1}</span>
+                        <p className="absolute bottom-4 left-28 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-azure backdrop-blur sm:left-32">{f.tag}</p>
                       </div>
-                      <h3 className="relative mt-7 font-display text-2xl font-bold">{f.title}</h3>
-                      <p className="relative mt-3 leading-relaxed text-ink-soft">{f.text}</p>
-                      <p className="relative mt-6 inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold text-azure ring-1 ring-blue-100">{f.tag}</p>
+                      <div className="relative px-8 pb-9 sm:px-10">
+                        <div className={`-mt-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ring-4 ring-white ${featureAccents[i]}`}>
+                          <Icon className="h-8 w-8" />
+                        </div>
+                        <h3 className="mt-5 font-display text-2xl font-bold">{f.title}</h3>
+                        <p className="mt-3 leading-relaxed text-ink-soft">{f.text}</p>
+                      </div>
                     </article>
                   </Reveal>
                 );
@@ -219,27 +229,31 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <SectionHeader eyebrow={t.apps.eyebrow} title={t.apps.title} desc={t.apps.desc} />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {t.apps.items.map((a, i) => {
-                const Scene = appScenes[i];
-                return (
-                  <Reveal key={a.title} delay={(i % 3) * 90}>
-                    <article className="card group h-full overflow-hidden bg-white">
-                      <div className="relative aspect-[8/5] overflow-hidden">
-                        <div className="h-full w-full transition duration-700 group-hover:scale-105">
-                          <Scene />
-                        </div>
-                        <span className="absolute right-3 bottom-3 rounded-full bg-white/90 px-2.5 py-0.5 font-display text-xs font-bold text-azure shadow-sm">
-                          0{i + 1}
-                        </span>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="font-display text-xl font-bold">{a.title}</h3>
-                        <p className="mt-2 leading-relaxed text-ink-soft">{a.text}</p>
-                      </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
+              {t.apps.items.map((a, i) => (
+                <Reveal key={a.title} delay={(i % 3) * 90}>
+                  <article className="card group h-full overflow-hidden bg-white">
+                    <div className="relative aspect-[8/5] overflow-hidden">
+                      <Image
+                        src={photos.apps[i]}
+                        alt={a.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-ink shadow-sm backdrop-blur">
+                        <span className="h-1.5 w-1.5 rounded-full bg-sky" />
+                        {a.tag}
+                      </span>
+                      <span className="absolute bottom-3 left-4 font-display text-sm font-bold text-white/90">/ 0{i + 1}</span>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-display text-xl font-bold">{a.title}</h3>
+                      <p className="mt-2 leading-relaxed text-ink-soft">{a.text}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
@@ -247,8 +261,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         {/* Why now */}
         <section className="relative py-24 sm:py-32">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <SectionHeader eyebrow={t.why.eyebrow} title={t.why.title} center={false} />
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <SectionHeader eyebrow={t.why.eyebrow} title={t.why.title} center={false} />
+              <Reveal className="relative -mt-4 aspect-[16/10] overflow-hidden rounded-3xl shadow-xl shadow-blue-900/10">
+                <Image src={photos.why} alt={t.why.items[0].title} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 to-transparent" />
+              </Reveal>
+            </div>
+            <div className="grid content-center gap-x-5 gap-y-10 sm:grid-cols-2">
               {t.why.items.map((w, i) => (
                 <Reveal key={w.title} delay={i * 80}>
                   <div className="h-full border-l-2 border-sky/60 py-1 pl-6">
@@ -359,6 +379,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
           <p>
             © {new Date().getFullYear()} StarWeave. {t.footer.rights}
+            <span className="mx-2 text-line">|</span>
+            {t.footer.photos}{" "}
+            <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:text-azure hover:underline">
+              Unsplash
+            </a>
           </p>
         </div>
       </footer>

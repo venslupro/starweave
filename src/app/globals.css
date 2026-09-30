@@ -96,20 +96,6 @@ body {
   animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Application scenes */
-@keyframes scan {
-  to {
-    transform: translateY(310px);
-  }
-}
-.scan {
-  animation: scan 4s linear infinite;
-}
-.orbit-pivot {
-  transform-origin: 96px 176px;
-  animation: spin 8s linear infinite;
-}
-
 /* Hero visual */
 @keyframes spin {
   to {

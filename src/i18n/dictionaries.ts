@@ -95,12 +95,12 @@ const zh = {
     title: "前沿技术，产业级影响",
     desc: "凡是数据产生于太空、或需要全球覆盖的实时智能，都是在轨算力的舞台。",
     items: [
-      { title: "对地观测实时分析", text: "卫星影像在轨识别目标与变化，分钟级交付情报。" },
-      { title: "灾害应急响应", text: "山火、洪水、地震第一时间研判，为救援争取黄金时间。" },
-      { title: "海事与航空监测", text: "全球船舶与航迹实时追踪，服务航运、渔业与安全。" },
-      { title: "气候与农业", text: "碳排放、作物长势与水资源的持续监测与预测。" },
-      { title: "全球 AI 推理服务", text: "为地面用户提供绿色、可弹性扩展的推理算力。" },
-      { title: "深空探测", text: "为未来月球与深空任务提供自主计算基础设施。" },
+      { tag: "在轨目标识别", title: "对地观测实时分析", text: "卫星影像在轨识别目标与变化，分钟级交付情报。" },
+      { tag: "火点实时告警", title: "灾害应急响应", text: "山火、洪水、地震第一时间研判，为救援争取黄金时间。" },
+      { tag: "全球航迹追踪", title: "海事与航空监测", text: "全球船舶与航迹实时追踪，服务航运、渔业与安全。" },
+      { tag: "作物长势监测", title: "气候与农业", text: "碳排放、作物长势与水资源的持续监测与预测。" },
+      { tag: "绿色推理算力", title: "全球 AI 推理服务", text: "为地面用户提供绿色、可弹性扩展的推理算力。" },
+      { tag: "自主深空计算", title: "深空探测", text: "为未来月球与深空任务提供自主计算基础设施。" },
     ],
   },
   why: {
@@ -155,6 +155,7 @@ const zh = {
   footer: {
     tagline: "构建在轨算力 · 把数据中心送上太空",
     rights: "保留所有权利。",
+    photos: "图片来源",
   },
 };
 
@@ -255,12 +256,12 @@ const en: Dictionary = {
     title: "Frontier technology, industrial impact",
     desc: "Wherever data is born in space, or real-time intelligence needs global reach, orbital compute takes the stage.",
     items: [
-      { title: "Real-time Earth Observation", text: "Detect objects and change in orbit; deliver intelligence in minutes." },
-      { title: "Disaster Response", text: "Assess wildfires, floods and earthquakes instantly to win the golden hour." },
-      { title: "Maritime & Aviation", text: "Track vessels and flights worldwide for shipping, fisheries and security." },
-      { title: "Climate & Agriculture", text: "Continuously monitor and forecast emissions, crops and water." },
-      { title: "Global AI Inference", text: "Green, elastic inference capacity served to users on the ground." },
-      { title: "Deep-space Missions", text: "Autonomous compute infrastructure for lunar and deep-space exploration." },
+      { tag: "In-orbit detection", title: "Real-time Earth Observation", text: "Detect objects and change in orbit; deliver intelligence in minutes." },
+      { tag: "Real-time fire alerts", title: "Disaster Response", text: "Assess wildfires, floods and earthquakes instantly to win the golden hour." },
+      { tag: "Global track fusion", title: "Maritime & Aviation", text: "Track vessels and flights worldwide for shipping, fisheries and security." },
+      { tag: "Crop-health monitoring", title: "Climate & Agriculture", text: "Continuously monitor and forecast emissions, crops and water." },
+      { tag: "Solar-powered inference", title: "Global AI Inference", text: "Green, elastic inference capacity served to users on the ground." },
+      { tag: "Autonomous compute", title: "Deep-space Missions", text: "Autonomous compute infrastructure for lunar and deep-space exploration." },
     ],
   },
   why: {
@@ -315,6 +316,7 @@ const en: Dictionary = {
   footer: {
     tagline: "Compute in orbit · Data centers in space",
     rights: "All rights reserved.",
+    photos: "Photos via",
   },
 };
 
