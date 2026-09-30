@@ -7,7 +7,7 @@ export const photos = {
     unsplash("1615092296061-e2ccfeb2f3d6"), // wildfire burning across a hillside
     unsplash("1724597500306-a4cbb7d1324e"), // aerial view of a container ship at sea
     unsplash("1516822277566-bb38424a2b77"), // aerial view of farm fields
-    unsplash("1451187580459-43490279c0fa"), // Earth at night with city lights
+    unsplash("1744640326166-433469d102f2"), // glowing AI chip on a circuit board
     unsplash("1614724723258-ba209d44bc06"), // Earth rising above the lunar surface
   ],
   features: [
