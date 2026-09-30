@@ -3,13 +3,13 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-Vercel-000?logo=vercel)](https://stareave.vercel.app)
+[![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-Vercel-000?logo=vercel)](https://starweave.opcbridge.top)
 
 > Bilingual (Chinese / English) website for StarWeave — orbital cloud compute that sends the data center into space.
 
 StarWeave builds data centers in orbit: satellite constellations carry radiation-hardened AI chips, run on solar power, radiate heat into deep space and link up over inter-satellite lasers into a single compute network. Like the cloud, that capacity is delivered on demand — users submit jobs from the ground, and the orbital cluster runs them and returns the results. This repository contains the public, investor-facing website that presents the vision, architecture, use cases and partnership opportunities.
 
-Live site: **https://stareave.vercel.app**
+Live site: **https://starweave.opcbridge.top**
 
 ## Table of Contents
 
@@ -101,7 +101,7 @@ The site is deployed on [Vercel](https://vercel.com). With the [Vercel CLI](http
 vercel --prod
 ```
 
-Both locale pages are statically generated at build time.
+Both locale pages are statically generated at build time. Production is served at the custom domain [starweave.opcbridge.top](https://starweave.opcbridge.top).
 
 ## Maintainers
 
